@@ -44,9 +44,11 @@ public class JkzhBlockElementHandler extends BlockElementHandler{
      */
     private Object multipleWorkingConditions(CellContext cellContext, IterableTemplate iterableTemplate){
         List<Map<String, Object>> values = new ArrayList<>();
+        int index = 1;
         for (Object item:cellContext.getItmesMap().entrySet()) {
             Map.Entry<String,List<CellEntity>> entry = (Map.Entry<String, List<CellEntity>> )item;
             cellContext.setDataKey(entry.getKey());
+            cellContext.setIndex(index++);
             Map<String, Object> valueMap = new HashMap<String, Object>() {
                 {
                     for (MetaTemplate item:iterableTemplate.getTemplates()) {

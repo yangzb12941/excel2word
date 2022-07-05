@@ -24,6 +24,13 @@ public class StringElementHandler implements IElementHandler<String>{
 
     @Override
     public String getElementValue(CellContext cellContext, MetaTemplate metaTemplate) {
-        return cellContext.getDataKey();
+        int indexOf = cellContext.getDataKey().indexOf(".");
+        String tableName = "";
+        if(indexOf != -1){
+            tableName = cellContext.getIndex()+"、"+cellContext.getDataKey().substring(indexOf+1,cellContext.getDataKey().length());
+        }else{
+            tableName = cellContext.getIndex()+"、"+cellContext.getDataKey();
+        }
+        return tableName;
     }
 }

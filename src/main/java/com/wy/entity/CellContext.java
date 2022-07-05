@@ -10,6 +10,7 @@ import java.util.List;
 public class CellContext<T extends CellEntity> {
     private HashMap<String,List<T>> itmesMap;
     private String dataKey;
+    private Integer index;
     public CellContext(){
         this.itmesMap = new HashMap<String,List<T>>(8);
     }

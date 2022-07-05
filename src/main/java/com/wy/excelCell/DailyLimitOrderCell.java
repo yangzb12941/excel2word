@@ -37,14 +37,11 @@ public class DailyLimitOrderCell extends ExcelCell{
     private String 现金资产;
 
     @ExcelProperty(index = 9)
-    private String 可用金额;
-
-    @ExcelProperty(index = 10)
     private String 交易日期;
 
-    @ExcelProperty(index = 11)
+    @ExcelProperty(index = 10)
     private String 使用系统;
 
-    @ExcelProperty(index = 12)
+    @ExcelProperty(index = 11)
     private String 使用系统次数;
 }

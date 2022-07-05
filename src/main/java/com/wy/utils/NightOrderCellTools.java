@@ -3,6 +3,7 @@ package com.wy.utils;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.util.DateUtils;
 import com.wy.entity.CellContext;
+import com.wy.entity.CellEntity;
 import com.wy.entity.WordTableModelEntity;
 import com.wy.excelCell.NightOrderCell;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -20,9 +22,11 @@ public class NightOrderCellTools extends ExcelImportTools<NightOrderCell> {
     private static final Date curDate = new Date();
     //插入数据脚本，写入文件
     private CellContext cellContext;
+    private String sheetName;
 
-    public NightOrderCellTools(CellContext CellContext) {
+    public NightOrderCellTools(CellContext CellContext,String sheetName) {
         this.cellContext = CellContext;
+        this.sheetName = sheetName;
     }
 
     /**
@@ -50,7 +54,12 @@ public class NightOrderCellTools extends ExcelImportTools<NightOrderCell> {
     @Override
     public void doSomething() {
         List<WordTableModelEntity> excelCellList = excelDataToDaoModel();
-        this.cellContext.getItmes().addAll(excelCellList);
+        HashMap itmesMap = this.cellContext.getItmesMap();
+        if(itmesMap.containsKey(this.sheetName)){
+            ((ArrayList<CellEntity>) itmesMap.get(this.sheetName)).addAll(excelCellList);
+        }else{
+            itmesMap.put(this.sheetName, excelCellList);
+        }
     }
 
     private List<WordTableModelEntity> excelDataToDaoModel(){

@@ -28,33 +28,29 @@ public class ExcelToWordTest {
             ExcelReader excelReader = excelReaderBuilder.build();
             List<ReadSheet> sheets = excelReader.excelExecutor().sheetList();
             for (ReadSheet sheet : sheets) {
-                if(sheet.getSheetName().indexOf("建仓型")>=0){
-                    EasyExcel.read(file, PositionBuildingCell.class,
-                            new PositionBuildingCellTools(cellContext))
-                            .sheet(sheet.getSheetName()).headRowNumber(4).doRead();
-                }else if(sheet.getSheetName().indexOf("夜盘委托")>=0){
+               if(sheet.getSheetName().indexOf("夜盘委托")>=0){
                     EasyExcel.read(file, NightOrderCell.class,
-                            new NightOrderCellTools(cellContext))
+                            new NightOrderCellTools(cellContext,sheet.getSheetName()))
                             .sheet(sheet.getSheetName()).headRowNumber(4).doRead();
                 }else if(sheet.getSheetName().indexOf("涨停板敢死队")>=0){
                     EasyExcel.read(file, DailyLimitOrderCell.class,
-                            new DailyLimitOrderCellTools(cellContext))
+                            new DailyLimitOrderCellTools(cellContext,sheet.getSheetName()))
                             .sheet(sheet.getSheetName()).headRowNumber(4).doRead();
                 }else if(sheet.getSheetName().indexOf("追涨停模型")>=0){
                     EasyExcel.read(file, WillDailyLimitCell.class,
-                            new WillDailyLimitCellTools(cellContext))
+                            new WillDailyLimitCellTools(cellContext,sheet.getSheetName()))
                             .sheet(sheet.getSheetName()).headRowNumber(4).doRead();
                 }else if(sheet.getSheetName().indexOf("债券套利")>=0){
                     EasyExcel.read(file, BondArbitrageCell.class,
-                            new BondArbitrageCellTools(cellContext))
+                            new BondArbitrageCellTools(cellContext,sheet.getSheetName()))
                             .sheet(sheet.getSheetName()).headRowNumber(4).doRead();
                 }else if(sheet.getSheetName().indexOf("量化-非高频")>=0){
                     EasyExcel.read(file, QuantificationNonHighFrequencyCell.class,
-                            new QuantificationNonHighFrequencyCellTools(cellContext))
-                            .sheet(sheet.getSheetName()).headRowNumber(6).doRead();
+                            new QuantificationNonHighFrequencyCellTools(cellContext,sheet.getSheetName()))
+                            .sheet(sheet.getSheetName()).headRowNumber(5).doRead();
                 }else if(sheet.getSheetName().indexOf("股票数据汇总")>=0){
                     EasyExcel.read(file, StockDataSummaryCell.class,
-                            new StockDataSummaryCellTools(cellContext))
+                            new StockDataSummaryCellTools(cellContext,sheet.getSheetName()))
                             .sheet(sheet.getSheetName()).headRowNumber(4).doRead();
                 }
             }

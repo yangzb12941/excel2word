@@ -5,6 +5,7 @@ import com.alibaba.excel.util.DateUtils;
 import com.wy.entity.CellContext;
 import com.wy.entity.CellEntity;
 import com.wy.entity.WordTableModelEntity;
+import com.wy.excelCell.ExcelCell;
 import com.wy.excelCell.PositionBuildingCell;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +24,8 @@ public class PositionBuildingCellTools extends ExcelImportTools<PositionBuilding
     //插入数据脚本，写入文件
     private CellContext cellContext;
     private String sheetName;
-    public PositionBuildingCellTools(CellContext CellContext,String sheetName) {
-        this.cellContext = CellContext;
+    public PositionBuildingCellTools(CellContext cellContext,String sheetName) {
+        this.cellContext = cellContext;
         this.sheetName = sheetName;
     }
 
@@ -52,16 +53,13 @@ public class PositionBuildingCellTools extends ExcelImportTools<PositionBuilding
 
     @Override
     public void doSomething() {
-        List<WordTableModelEntity> excelCellList = excelDataToDaoModel();
-        HashMap itmesMap = this.cellContext.getItmesMap();
-        if(itmesMap.containsKey(this.sheetName)){
-            ((ArrayList<CellEntity>) itmesMap.get(this.sheetName)).addAll(excelCellList);
-        }else{
-            itmesMap.put(this.sheetName, excelCellList);
-        }
+        //原建仓型表格数据
+        excelDataToDaoModel();
+        //统计表格数据
+        excleDataToExcelCell();
     }
 
-    private List<WordTableModelEntity> excelDataToDaoModel(){
+    private void excelDataToDaoModel(){
         List<WordTableModelEntity> excelCellList = new ArrayList<WordTableModelEntity>(super.list.size());
         super.list.stream().forEach((e)->{
             WordTableModelEntity excelCell = new WordTableModelEntity();
@@ -76,6 +74,21 @@ public class PositionBuildingCellTools extends ExcelImportTools<PositionBuilding
             excelCell.set年份("");
             excelCellList.add(excelCell);
         });
-        return excelCellList;
+        HashMap itmesMap = this.cellContext.getItmesMap();
+        if(itmesMap.containsKey(this.sheetName)){
+            ((ArrayList<CellEntity>) itmesMap.get(this.sheetName)).addAll(excelCellList);
+        }else{
+            itmesMap.put(this.sheetName, excelCellList);
+        }
+    }
+
+    private void excleDataToExcelCell(){
+        List<ExcelCell> excelCellList = new ArrayList<ExcelCell>(super.list.size());
+        HashMap itmesMap = this.cellContext.getAllExcelCellMap();
+        if(itmesMap.containsKey(this.sheetName)){
+            ((ArrayList<ExcelCell>) itmesMap.get(this.sheetName)).addAll(excelCellList);
+        }else{
+            itmesMap.put(this.sheetName, excelCellList);
+        }
     }
 }

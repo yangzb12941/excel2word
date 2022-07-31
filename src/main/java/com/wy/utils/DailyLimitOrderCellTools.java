@@ -5,7 +5,9 @@ import com.alibaba.excel.util.DateUtils;
 import com.wy.entity.CellContext;
 import com.wy.entity.CellEntity;
 import com.wy.entity.WordTableModelEntity;
+import com.wy.excelCell.BondArbitrageCell;
 import com.wy.excelCell.DailyLimitOrderCell;
+import com.wy.excelCell.ExcelCell;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,8 +27,8 @@ public class DailyLimitOrderCellTools extends ExcelImportTools<DailyLimitOrderCe
 
     private String sheetName;
 
-    public DailyLimitOrderCellTools(CellContext CellContext,String sheetName) {
-        this.cellContext = CellContext;
+    public DailyLimitOrderCellTools(CellContext cellContext,String sheetName) {
+        this.cellContext = cellContext;
         this.sheetName = sheetName;
     }
 
@@ -54,16 +56,13 @@ public class DailyLimitOrderCellTools extends ExcelImportTools<DailyLimitOrderCe
 
     @Override
     public void doSomething() {
-        List<WordTableModelEntity> excelCellList = excelDataToDaoModel();
-        HashMap itmesMap = this.cellContext.getItmesMap();
-        if(itmesMap.containsKey(this.sheetName)){
-            ((ArrayList<CellEntity>) itmesMap.get(this.sheetName)).addAll(excelCellList);
-        }else{
-            itmesMap.put(this.sheetName, excelCellList);
-        }
+        //原涨停板敢死队表格数据
+        excelDataToDaoModel();
+        //统计表格数据
+        excleDataToExcelCell();
     }
 
-    private List<WordTableModelEntity> excelDataToDaoModel(){
+    private void excelDataToDaoModel(){
         List<WordTableModelEntity> excelCellList = new ArrayList<WordTableModelEntity>(super.list.size());
         super.list.stream().forEach((e)->{
             WordTableModelEntity excelCell = new WordTableModelEntity();
@@ -74,11 +73,25 @@ public class DailyLimitOrderCellTools extends ExcelImportTools<DailyLimitOrderCe
             excelCell.set服务人员编号(e.get服务人员编号());
             excelCell.set服务人员团队(e.get服务人员团队());
             excelCell.set使用系统(e.get使用系统());
-            excelCell.set学历(DateUtils.format(curDate,"yyyyMM"));
+            excelCell.set学历(e.get学历());
             excelCell.set年份("");
             excelCellList.add(excelCell);
         });
-        System.out.println("涨停板敢死队 "+excelCellList.size());
-        return excelCellList;
+        HashMap itmesMap = this.cellContext.getItmesMap();
+        if(itmesMap.containsKey(this.sheetName)){
+            ((ArrayList<CellEntity>) itmesMap.get(this.sheetName)).addAll(excelCellList);
+        }else{
+            itmesMap.put(this.sheetName, excelCellList);
+        }
+    }
+
+    private void excleDataToExcelCell(){
+        List<ExcelCell> excelCellList = new ArrayList<ExcelCell>(super.list.size());
+        HashMap itmesMap = this.cellContext.getAllExcelCellMap();
+        if(itmesMap.containsKey(this.sheetName)){
+            ((ArrayList<ExcelCell>) itmesMap.get(this.sheetName)).addAll(excelCellList);
+        }else{
+            itmesMap.put(this.sheetName, excelCellList);
+        }
     }
 }

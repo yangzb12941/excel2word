@@ -53,4 +53,10 @@ public class QuantificationNonHighFrequencyCell extends ExcelCell{
 
     @ExcelProperty(index = 14)
     private String 日期范围;
+
+    @ExcelProperty(index = 15)
+    private String 学历;
+
+    @ExcelProperty(index = 16)
+    private String 出生年月日;
 }

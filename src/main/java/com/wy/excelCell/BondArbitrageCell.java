@@ -62,4 +62,10 @@ public class BondArbitrageCell extends ExcelCell{
 
     @ExcelProperty(index = 17)
     private String 批量日期;
+
+    @ExcelProperty(index = 18)
+    private String 学历;
+
+    @ExcelProperty(index = 19)
+    private String 出生年月日;
 }

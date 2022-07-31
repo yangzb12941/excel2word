@@ -50,4 +50,10 @@ public class NightOrderCell  extends ExcelCell{
 
     @ExcelProperty(index = 13)
     private String 批量日期;
+
+    @ExcelProperty(index = 14)
+    private String 学历;
+
+    @ExcelProperty(index = 15)
+    private String 出生年月日;
 }

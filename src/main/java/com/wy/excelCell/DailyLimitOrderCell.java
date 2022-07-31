@@ -44,4 +44,10 @@ public class DailyLimitOrderCell extends ExcelCell{
 
     @ExcelProperty(index = 11)
     private String 使用系统次数;
+
+    @ExcelProperty(index = 12)
+    private String 学历;
+
+    @ExcelProperty(index = 13)
+    private String 出生年月日;
 }

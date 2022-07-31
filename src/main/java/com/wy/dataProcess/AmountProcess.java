@@ -1,11 +1,7 @@
 package com.wy.dataProcess;
 
-import com.wy.entity.AgeCellEntity;
 import com.wy.entity.AmountCellEntity;
-import com.wy.entity.CellEntity;
 import com.wy.excelCell.*;
-import com.wy.utils.GetYear;
-import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

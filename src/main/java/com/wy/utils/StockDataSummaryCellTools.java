@@ -73,10 +73,11 @@ public class StockDataSummaryCellTools extends ExcelImportTools<StockDataSummary
             excelCell.set服务人员编号(e.get服务人员编号());
             excelCell.set服务人员团队(e.get服务人员团队());
             excelCell.set使用系统(e.get使用系统());
-            excelCell.set月份(DateUtils.format(curDate,"yyyyMM"));
-            excelCell.set批次("");
+            excelCell.set学历(DateUtils.format(curDate,"yyyyMM"));
+            excelCell.set年份("");
             excelCellList.add(excelCell);
         });
+        System.out.println("股票数据汇总"+excelCellList.size());
         return excelCellList;
     }
 }

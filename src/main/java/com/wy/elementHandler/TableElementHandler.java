@@ -62,8 +62,8 @@ public class TableElementHandler implements IElementHandler<TableRenderData>{
                 table[0][4] = "服务人员姓名";
                 table[0][5] = "服务人员编号";
                 table[0][6] = "服务人员团队";
-                table[0][7] = "月份";
-                table[0][8] = "批次";
+                table[0][7] = "学历";
+                table[0][8] = "年份";
             }else{
                 int curIndex = i-1;
                 table[i][0] = ((WordTableModelEntity)itmes.get(curIndex)).get账户();
@@ -73,8 +73,8 @@ public class TableElementHandler implements IElementHandler<TableRenderData>{
                 table[i][4] = ((WordTableModelEntity)itmes.get(curIndex)).get服务人员姓名();
                 table[i][5] = ((WordTableModelEntity)itmes.get(curIndex)).get服务人员编号();
                 table[i][6] = ((WordTableModelEntity)itmes.get(curIndex)).get服务人员团队();
-                table[i][7] = ((WordTableModelEntity)itmes.get(curIndex)).get月份();
-                table[i][8] = ((WordTableModelEntity)itmes.get(curIndex)).get批次();
+                table[i][7] = ((WordTableModelEntity)itmes.get(curIndex)).get学历();
+                table[i][8] = ((WordTableModelEntity)itmes.get(curIndex)).get年份();
             }
         }
         return table;

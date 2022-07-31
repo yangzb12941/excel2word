@@ -74,10 +74,11 @@ public class DailyLimitOrderCellTools extends ExcelImportTools<DailyLimitOrderCe
             excelCell.set服务人员编号(e.get服务人员编号());
             excelCell.set服务人员团队(e.get服务人员团队());
             excelCell.set使用系统(e.get使用系统());
-            excelCell.set月份(DateUtils.format(curDate,"yyyyMM"));
-            excelCell.set批次("");
+            excelCell.set学历(DateUtils.format(curDate,"yyyyMM"));
+            excelCell.set年份("");
             excelCellList.add(excelCell);
         });
+        System.out.println("涨停板敢死队 "+excelCellList.size());
         return excelCellList;
     }
 }

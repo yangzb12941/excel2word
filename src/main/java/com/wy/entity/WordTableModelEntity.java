@@ -22,7 +22,7 @@ public class WordTableModelEntity extends CellEntity{
 
     private String 服务人员团队;
 
-    private String 月份;
+    private String 学历;
 
-    private String 批次;
+    private String 年份;
 }

@@ -66,17 +66,23 @@ public class WillDailyLimitCellTools extends ExcelImportTools<WillDailyLimitCell
         List<WordTableModelEntity> excelCellList = new ArrayList<WordTableModelEntity>(super.list.size());
         super.list.stream().forEach((e)->{
             WordTableModelEntity excelCell = new WordTableModelEntity();
-            excelCell.set账户(e.get资金账号());
-            excelCell.set营业部(e.get营业部());
-            excelCell.set客户类型(e.get客户类型());
-            excelCell.set服务人员姓名(e.get服务人员姓名());
-            excelCell.set服务人员编号(e.get服务人员编号());
-            excelCell.set服务人员团队(e.get服务人员团队());
-            excelCell.set使用系统(e.get使用系统());
-            excelCell.set月份(DateUtils.format(curDate,"yyyyMM"));
-            excelCell.set批次("");
-            excelCellList.add(excelCell);
+            String userSysTime = e.get使用系统次数() ;
+            if(Integer.parseInt(userSysTime) > 400) {
+            	excelCell.set账户(e.get资金账号());
+                excelCell.set营业部(e.get营业部());
+                excelCell.set客户类型(e.get客户类型());
+                excelCell.set服务人员姓名(e.get服务人员姓名());
+                excelCell.set服务人员编号(e.get服务人员编号());
+                excelCell.set服务人员团队(e.get服务人员团队());
+                excelCell.set使用系统(e.get使用系统());
+                excelCell.set学历(DateUtils.format(curDate,"yyyyMM"));
+                excelCell.set年份("");
+                excelCellList.add(excelCell);
+            }
         });
+        System.out.println("追涨停模型 "+excelCellList.size());
         return excelCellList;
     }
 }
+
+

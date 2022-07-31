@@ -14,15 +14,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 public class ExcelToWordTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExcelToWordTest.class);
     @Test
-    public void test() {
+    public void test() {    			
+    	//这个版本是处理周报的    	
         try{
-            File file = new File("C:\\Users\\yangzb\\Desktop\\文档\\0624.xlsx");
+            File file = new File("D:\\用户画像\\202207\\数据源\\客户画像数据汇总0721\\客户画像数据汇总0721.xlsx");
             CellContext cellContext = new CellContext();
             ExcelReaderBuilder excelReaderBuilder = EasyExcel.read(file);
             ExcelReader excelReader = excelReaderBuilder.build();

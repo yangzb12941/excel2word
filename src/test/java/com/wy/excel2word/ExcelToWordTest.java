@@ -4,6 +4,7 @@ import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.read.builder.ExcelReaderBuilder;
 import com.alibaba.excel.read.metadata.ReadSheet;
+import com.wy.dataProcess.DataToTable;
 import com.wy.entity.CellContext;
 import com.wy.excelCell.*;
 import com.wy.utils.*;
@@ -26,7 +27,7 @@ public class ExcelToWordTest {
         try{
             CellContext cellContext = new CellContext();
             ReadExcels instance = ReadExcels.getInstance();
-            List<File> allFile = instance.getAllFile("D:\\用户画像\\202207\\数据源\\客户画像数据汇总0721");
+            List<File> allFile = instance.getAllFile("D:\\aaaa");
             for (File file : allFile) {
                 try{
                     ExcelReaderBuilder excelReaderBuilder = EasyExcel.read(file);
@@ -63,6 +64,7 @@ public class ExcelToWordTest {
                     LOGGER.error("文件-{}读取失败;",file.getName());
                 }
             }
+            DataToTable.getInstance().dataToTable(cellContext);
             CellWriter2Word.getInstance().writeWord(cellContext);
         }catch (Exception e) {
             LOGGER.error("ExcelToWordTest error {}",e);

@@ -18,7 +18,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
 
     private List<EmphasisCellEntity> excelDataToDaoModel(List rawMaterial,Class zlass){
         List<EmphasisCellEntity> excelCellList = new ArrayList<EmphasisCellEntity>(rawMaterial.size());
-        if(zlass.isInstance(BondArbitrageCell.class)){
+        if(zlass == (BondArbitrageCell.class)){
             List<BondArbitrageCell> cells = (List<BondArbitrageCell>)rawMaterial;
             cells.stream().forEach((element)->{
                 if(Double.valueOf(element.get总资产()).compareTo(10000000d)>=0){
@@ -38,7 +38,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCellList.add(excelCell);
                 }
             });
-        }else if(zlass.isInstance(DailyLimitOrderCell.class)){
+        }else if(zlass == (DailyLimitOrderCell.class)){
             List<DailyLimitOrderCell> cells = (List<DailyLimitOrderCell>)rawMaterial;
             cells.stream().forEach((element)->{
                 if(Double.valueOf(element.get总资产()).compareTo(10000000d)>=0 && (
@@ -61,7 +61,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCellList.add(excelCell);
                 }
             });
-        }else if(zlass.isInstance(NightOrderCell.class)){
+        }else if(zlass == (NightOrderCell.class)){
             List<NightOrderCell> cells = (List<NightOrderCell>)rawMaterial;
             cells.stream().forEach((element)->{
                 if(Double.valueOf(element.get总资产()).compareTo(10000000d)>=0 && (
@@ -84,7 +84,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCellList.add(excelCell);
                 }
             });
-        }else if(zlass.isInstance(PositionBuildingCell.class)){
+        }else if(zlass == (PositionBuildingCell.class)){
             List<PositionBuildingCell> cells = (List<PositionBuildingCell>)rawMaterial;
             cells.stream().forEach((element)->{
                 if(Double.valueOf(element.get资产规模()).compareTo(10000000d)>=0 &&
@@ -106,7 +106,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCellList.add(excelCell);
                 }
             });
-        }else if(zlass.isInstance(QuantificationNonHighFrequencyCell.class)){
+        }else if(zlass == (QuantificationNonHighFrequencyCell.class)){
             List<QuantificationNonHighFrequencyCell> cells = (List<QuantificationNonHighFrequencyCell>)rawMaterial;
             cells.stream().forEach((element)->{
                 if(Double.valueOf(element.get总资产()).compareTo(10000000d)>=0 && (
@@ -129,7 +129,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCellList.add(excelCell);
                 }
             });
-        }else if(zlass.isInstance(StockDataSummaryCell.class)){
+        }else if(zlass == (StockDataSummaryCell.class)){
             List<StockDataSummaryCell> cells = (List<StockDataSummaryCell>)rawMaterial;
             cells.stream().forEach((element)->{
                 if(Double.valueOf(element.get总资产()).compareTo(10000000d)>=0){
@@ -149,7 +149,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCellList.add(excelCell);
                 }
             });
-        }else if(zlass.isInstance(WillDailyLimitCell.class)){
+        }else if(zlass == (WillDailyLimitCell.class)){
             List<WillDailyLimitCell> cells = (List<WillDailyLimitCell>)rawMaterial;
             cells.stream().forEach((element)->{
                 if(Double.valueOf(element.get总资产()).compareTo(10000000d)>=0 && (

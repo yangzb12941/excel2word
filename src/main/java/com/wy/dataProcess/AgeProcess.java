@@ -29,7 +29,7 @@ public class AgeProcess implements IProcess<ExcelCell> {
         Integer 后1995 = 0;
         Double 占比1985 = 0d;
         Double 占比1995 = 0d;
-        if(zlass.isInstance(BondArbitrageCell.class)){
+        if(zlass == (BondArbitrageCell.class)){
             List<BondArbitrageCell> cells = (List<BondArbitrageCell>)rawMaterial;
             List<BondArbitrageCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
             Map<String, List<BondArbitrageCell>> mapCollect = filterCollect.stream().collect(Collectors.groupingBy(e -> e.get资金账号()));
@@ -51,7 +51,7 @@ public class AgeProcess implements IProcess<ExcelCell> {
             }
             占比1985 = (总量-前1985)/(总量*1.0);
             占比1995 = 后1995/(总量*1.0);
-        }else if(zlass.isInstance(DailyLimitOrderCell.class)){
+        }else if(zlass == (DailyLimitOrderCell.class)){
             List<DailyLimitOrderCell> cells = (List<DailyLimitOrderCell>)rawMaterial;
             List<DailyLimitOrderCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
             Map<String, List<DailyLimitOrderCell>> mapCollect = filterCollect.stream().collect(Collectors.groupingBy(e -> e.get资金账号()));
@@ -73,7 +73,7 @@ public class AgeProcess implements IProcess<ExcelCell> {
             }
             占比1985 = (总量-前1985)/(总量*1.0);
             占比1995 = 后1995/(总量*1.0);
-        }else if(zlass.isInstance(NightOrderCell.class)){
+        }else if(zlass == (NightOrderCell.class)){
             List<NightOrderCell> cells = (List<NightOrderCell>)rawMaterial;
             List<NightOrderCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
             Map<String, List<NightOrderCell>> mapCollect = filterCollect.stream().collect(Collectors.groupingBy(e -> e.get资金账号()));
@@ -95,7 +95,7 @@ public class AgeProcess implements IProcess<ExcelCell> {
             }
             占比1985 = (总量-前1985)/(总量*1.0);
             占比1995 = 后1995/(总量*1.0);
-        }else if(zlass.isInstance(PositionBuildingCell.class)){
+        }else if(zlass == (PositionBuildingCell.class)){
             List<PositionBuildingCell> cells = (List<PositionBuildingCell>)rawMaterial;
             List<PositionBuildingCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
             Map<String, List<PositionBuildingCell>> mapCollect = filterCollect.stream().collect(Collectors.groupingBy(e -> e.get客户号()));
@@ -117,7 +117,7 @@ public class AgeProcess implements IProcess<ExcelCell> {
             }
             占比1985 = (总量-前1985)/(总量*1.0);
             占比1995 = 后1995/(总量*1.0);
-        }else if(zlass.isInstance(QuantificationNonHighFrequencyCell.class)){
+        }else if(zlass == (QuantificationNonHighFrequencyCell.class)){
             List<QuantificationNonHighFrequencyCell> cells = (List<QuantificationNonHighFrequencyCell>)rawMaterial;
             List<QuantificationNonHighFrequencyCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
             Map<String, List<QuantificationNonHighFrequencyCell>> mapCollect = filterCollect.stream().collect(Collectors.groupingBy(e -> e.get资金账号()));
@@ -139,7 +139,7 @@ public class AgeProcess implements IProcess<ExcelCell> {
             }
             占比1985 = (总量-前1985)/(总量*1.0);
             占比1995 = 后1995/(总量*1.0);
-        }else if(zlass.isInstance(StockDataSummaryCell.class)){
+        }else if(zlass == (StockDataSummaryCell.class)){
             List<StockDataSummaryCell> cells = (List<StockDataSummaryCell>)rawMaterial;
             List<StockDataSummaryCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
             Map<String, List<StockDataSummaryCell>> mapCollect = filterCollect.stream().collect(Collectors.groupingBy(e -> e.get资金账号()));
@@ -161,7 +161,7 @@ public class AgeProcess implements IProcess<ExcelCell> {
             }
             占比1985 = (总量-前1985)/(总量*1.0);
             占比1995 = 后1995/(总量*1.0);
-        }else if(zlass.isInstance(WillDailyLimitCell.class)){
+        }else if(zlass == (WillDailyLimitCell.class)){
             List<WillDailyLimitCell> cells = (List<WillDailyLimitCell>)rawMaterial;
             List<WillDailyLimitCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
             Map<String, List<WillDailyLimitCell>> mapCollect = filterCollect.stream().collect(Collectors.groupingBy(e -> e.get资金账号()));

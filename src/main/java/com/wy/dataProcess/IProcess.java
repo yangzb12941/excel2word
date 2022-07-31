@@ -9,5 +9,5 @@ import java.util.List;
  * 数据加工接口
  */
 public interface IProcess<T extends ExcelCell> {
-    public List<CellEntity> process(List<T> rawMaterial);
+    public List<? extends CellEntity> process(List<T> rawMaterial,Class zlass);
 }

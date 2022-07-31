@@ -4,6 +4,9 @@ import lombok.Data;
 
 @Data
 public class EmphasisCellEntity extends CellEntity{
+
+    private String 服务人员编号;
+
     private String 服务人员;
 
     private String 客户资金账号;

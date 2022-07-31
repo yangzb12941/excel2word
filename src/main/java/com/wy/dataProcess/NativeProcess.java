@@ -2,23 +2,24 @@ package com.wy.dataProcess;
 
 import com.wy.entity.WordTableModelEntity;
 import com.wy.excelCell.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NativeProcess implements IProcess<ExcelCell>{
 
     @Override
-    public List<WordTableModelEntity> process(List rawMaterial) {
-        List<WordTableModelEntity> wordTableModelEntities = excelDataToDaoModel(rawMaterial);
+    public List<WordTableModelEntity> process(List rawMaterial,Class zlass) {
+        List<WordTableModelEntity> wordTableModelEntities = excelDataToDaoModel(rawMaterial,zlass);
         return wordTableModelEntities;
     }
 
-    private List<WordTableModelEntity> excelDataToDaoModel(List rawMaterial){
+    private List<WordTableModelEntity> excelDataToDaoModel(List rawMaterial,Class zlass){
         List<WordTableModelEntity> excelCellList = new ArrayList<WordTableModelEntity>(rawMaterial.size());
-        rawMaterial.stream().forEach((e)->{
-            WordTableModelEntity excelCell = new WordTableModelEntity();
-            if(e instanceof BondArbitrageCell){
-                BondArbitrageCell element = (BondArbitrageCell) e;
+        if(zlass.isInstance(BondArbitrageCell.class)){
+            List<BondArbitrageCell> cells = (List<BondArbitrageCell>)rawMaterial;
+            cells.stream().forEach((element)->{
+                WordTableModelEntity excelCell = new WordTableModelEntity();
                 excelCell.set账户(element.get资金账号());
                 excelCell.set营业部(element.get营业部());
                 excelCell.set客户类型(element.get客户类型());
@@ -29,8 +30,11 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set学历(element.get学历());
                 excelCell.set年份("");
                 excelCellList.add(excelCell);
-            }else if(e instanceof DailyLimitOrderCell){
-                DailyLimitOrderCell element = (DailyLimitOrderCell) e;
+            });
+        }else if(zlass.isInstance(DailyLimitOrderCell.class)){
+            List<DailyLimitOrderCell> cells = (List<DailyLimitOrderCell>)rawMaterial;
+            cells.stream().forEach((element)->{
+                WordTableModelEntity excelCell = new WordTableModelEntity();
                 excelCell.set账户(element.get资金账号());
                 excelCell.set营业部(element.get营业部());
                 excelCell.set客户类型(element.get客户类型());
@@ -41,8 +45,11 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set学历(element.get学历());
                 excelCell.set年份("");
                 excelCellList.add(excelCell);
-            }else if(e instanceof NightOrderCell){
-                NightOrderCell element = (NightOrderCell) e;
+            });
+        }else if(zlass.isInstance(NightOrderCell.class)){
+            List<NightOrderCell> cells = (List<NightOrderCell>)rawMaterial;
+            cells.stream().forEach((element)->{
+                WordTableModelEntity excelCell = new WordTableModelEntity();
                 excelCell.set账户(element.get资金账号());
                 excelCell.set营业部(element.get营业部());
                 excelCell.set客户类型(element.get客户类型());
@@ -53,8 +60,11 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set学历(element.get学历());
                 excelCell.set年份("");
                 excelCellList.add(excelCell);
-            }else if(e instanceof PositionBuildingCell){
-                PositionBuildingCell element = (PositionBuildingCell) e;
+            });
+        }else if(zlass.isInstance(PositionBuildingCell.class)){
+            List<PositionBuildingCell> cells = (List<PositionBuildingCell>)rawMaterial;
+            cells.stream().forEach((element)->{
+                WordTableModelEntity excelCell = new WordTableModelEntity();
                 excelCell.set账户(element.get客户号());
                 excelCell.set营业部(element.get营业部());
                 excelCell.set客户类型(element.get客户类型());
@@ -65,8 +75,11 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set学历(element.get学历());
                 excelCell.set年份("");
                 excelCellList.add(excelCell);
-            }else if(e instanceof QuantificationNonHighFrequencyCell){
-                QuantificationNonHighFrequencyCell element = (QuantificationNonHighFrequencyCell) e;
+            });
+        }else if(zlass.isInstance(QuantificationNonHighFrequencyCell.class)){
+            List<QuantificationNonHighFrequencyCell> cells = (List<QuantificationNonHighFrequencyCell>)rawMaterial;
+            cells.stream().forEach((element)->{
+                WordTableModelEntity excelCell = new WordTableModelEntity();
                 excelCell.set账户(element.get资金账号());
                 excelCell.set营业部(element.get营业部());
                 excelCell.set客户类型(element.get客户类型());
@@ -77,8 +90,11 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set学历(element.get学历());
                 excelCell.set年份("");
                 excelCellList.add(excelCell);
-            }else if(e instanceof StockDataSummaryCell){
-                StockDataSummaryCell element = (StockDataSummaryCell) e;
+            });
+        }else if(zlass.isInstance(StockDataSummaryCell.class)){
+            List<StockDataSummaryCell> cells = (List<StockDataSummaryCell>)rawMaterial;
+            cells.stream().forEach((element)->{
+                WordTableModelEntity excelCell = new WordTableModelEntity();
                 excelCell.set账户(element.get资金账号());
                 excelCell.set营业部(element.get营业部());
                 excelCell.set客户类型(element.get客户类型());
@@ -89,8 +105,11 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set学历(element.get学历());
                 excelCell.set年份("");
                 excelCellList.add(excelCell);
-            }else if(e instanceof WillDailyLimitCell){
-                WillDailyLimitCell element = (WillDailyLimitCell) e;
+            });
+        }else if(zlass.isInstance(WillDailyLimitCell.class)){
+            List<WillDailyLimitCell> cells = (List<WillDailyLimitCell>)rawMaterial;
+            cells.stream().forEach((element)->{
+                WordTableModelEntity excelCell = new WordTableModelEntity();
                 excelCell.set账户(element.get资金账号());
                 excelCell.set营业部(element.get营业部());
                 excelCell.set客户类型(element.get客户类型());
@@ -101,8 +120,8 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set学历(element.get学历());
                 excelCell.set年份("");
                 excelCellList.add(excelCell);
-            }
-        });
+            });
+        }
         return excelCellList;
     }
 }

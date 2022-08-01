@@ -49,9 +49,9 @@ public class JkzhBlockElementHandler extends BlockElementHandler{
     private Object multipleWorkingConditions(CellContext cellContext, IterableTemplate iterableTemplate){
         List<Map<String, Object>> values = new ArrayList<>();
         int index = 1;
-        for (Object item:cellContext.getItmesMap().entrySet()) {
-            Map.Entry<String,List<CellEntity>> entry = (Map.Entry<String, List<CellEntity>> )item;
-            cellContext.setDataKey(entry.getKey());
+        List<String> tableNames = orderTableNames();
+        for(String tableName : tableNames){
+            cellContext.setDataKey(tableName);
             cellContext.setIndex(index++);
             Map<String, Object> valueMap = new HashMap<String, Object>() {
                 {
@@ -72,5 +72,22 @@ public class JkzhBlockElementHandler extends BlockElementHandler{
         }
         //多工况模板元素迭代完，重新设置回解析模板非多工况部分填充值
         return values;
+    }
+
+
+    private List<String> orderTableNames(){
+        List<String> order = new ArrayList<>(10);
+        order.add("数量统计");
+        order.add("年龄统计");
+        order.add("学历统计");
+        order.add("重点关注");
+
+        order.add("夜盘委托");
+        order.add("涨停板敢死队");
+        order.add("追涨停模型");
+        order.add("债券套利");
+        order.add("量化-非高频");
+        order.add("股票数据汇总");
+        return order;
     }
 }

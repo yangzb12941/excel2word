@@ -9,8 +9,8 @@ public class Transaction2Introduce {
     static {
         map = new HashMap<String, String>(6);
         map.put("夜盘委托","附件 图2-1");
-        map.put("涨跌停敢死队","附件 图1-1");
-        map.put("涨跌停模型","附件 图2-1");
+        map.put("涨停板敢死队","附件 图1-1");
+        map.put("追涨停模型","附件 图2-1");
         map.put("量化-非高频","附件 图1-1");
         map.put("债券套利","附件 图1-1");
         map.put("股票数据汇总","附件 图1-1");

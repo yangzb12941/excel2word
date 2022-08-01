@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 public class Data2Table implements IData2Table{
@@ -40,10 +41,11 @@ public class Data2Table implements IData2Table{
                 if(i==0){
                     //插入表头
                     table[i][j] = header.getHeader().get(j).getCellName();
-                }else{
-                    int curIndex = i-1;
                     //插入数据行
-                    table[i][j] = getGetMethod(cellEntities.get(curIndex),header.getHeader().get(j).getCellName());
+                    table[i+1][j] = getGetMethod(cellEntities.get(i),header.getHeader().get(j).getCellName());
+                }else{
+                    //插入数据行
+                    table[i+1][j] = getGetMethod(cellEntities.get(i),header.getHeader().get(j).getCellName());
                 }
             }
         }
@@ -55,7 +57,7 @@ public class Data2Table implements IData2Table{
         try{
             for(int i = 0;i < m.length;i++){
                 if(m[i].getName().startsWith("get") && m[i].getName().indexOf(name)>=0){
-                    return m[i].invoke(ob).toString();
+                    return Objects.nonNull(m[i].invoke(ob))?m[i].invoke(ob).toString():"";
                 }
             }
         }catch (IllegalAccessException | InvocationTargetException e) {

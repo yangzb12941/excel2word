@@ -2,6 +2,7 @@ package com.wy.dataProcess;
 
 import com.wy.entity.WordTableModelEntity;
 import com.wy.excelCell.*;
+import com.wy.utils.GetYear;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
                 excelCell.set学历(element.get学历());
-                excelCell.set年份("");
+                excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
         }else if(zlass == DailyLimitOrderCell.class){
@@ -43,7 +44,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
                 excelCell.set学历(element.get学历());
-                excelCell.set年份("");
+                excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
         }else if(zlass == NightOrderCell.class){
@@ -58,7 +59,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
                 excelCell.set学历(element.get学历());
-                excelCell.set年份("");
+                excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
         }else if(zlass == PositionBuildingCell.class){
@@ -73,7 +74,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
                 excelCell.set学历(element.get学历());
-                excelCell.set年份("");
+                excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
         }else if(zlass == QuantificationNonHighFrequencyCell.class){
@@ -88,7 +89,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
                 excelCell.set学历(element.get学历());
-                excelCell.set年份("");
+                excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
         }else if(zlass == StockDataSummaryCell.class){
@@ -103,7 +104,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
                 excelCell.set学历(element.get学历());
-                excelCell.set年份("");
+                excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
         }else if(zlass == WillDailyLimitCell.class){
@@ -118,7 +119,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
                 excelCell.set学历(element.get学历());
-                excelCell.set年份("");
+                excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
         }

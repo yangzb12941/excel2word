@@ -15,7 +15,7 @@ public class NativeHeader extends Header{
 
     @Override
     public List<Cell> getHeader() {
-        String[] headers = new String[] {"账号","营业部","客户类型","使用系统","服务人员姓名","服务人员编号","服务人员团队","学历","年份"};
+        String[] headers = new String[] {"账户","营业部","客户类型","使用系统","服务人员姓名","服务人员编号","服务人员团队","学历","年份"};
         List<Cell> cells = new ArrayList<Cell>(headers.length);
         for (int i = 0; i < headers.length; i++) {
             Cell cell = new Cell();

@@ -49,8 +49,8 @@ public class AgeProcess implements IProcess<ExcelCell> {
                     }
                 }
             }
-            占比1985 = (总量-前1985)/(总量*1.0);
-            占比1995 = 后1995/(总量*1.0);
+            占比1985 = (总量-前1985)/(总量*1.0) *100;
+            占比1995 = 后1995/(总量*1.0) *100;
         }else if(zlass == (DailyLimitOrderCell.class)){
             List<DailyLimitOrderCell> cells = (List<DailyLimitOrderCell>)rawMaterial;
             List<DailyLimitOrderCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -71,8 +71,8 @@ public class AgeProcess implements IProcess<ExcelCell> {
                     }
                 }
             }
-            占比1985 = (总量-前1985)/(总量*1.0);
-            占比1995 = 后1995/(总量*1.0);
+            占比1985 = (总量-前1985)/(总量*1.0) *100;
+            占比1995 = 后1995/(总量*1.0) *100;
         }else if(zlass == (NightOrderCell.class)){
             List<NightOrderCell> cells = (List<NightOrderCell>)rawMaterial;
             List<NightOrderCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -93,8 +93,8 @@ public class AgeProcess implements IProcess<ExcelCell> {
                     }
                 }
             }
-            占比1985 = (总量-前1985)/(总量*1.0);
-            占比1995 = 后1995/(总量*1.0);
+            占比1985 = (总量-前1985)/(总量*1.0) *100;
+            占比1995 = 后1995/(总量*1.0) *100;
         }else if(zlass == (PositionBuildingCell.class)){
             List<PositionBuildingCell> cells = (List<PositionBuildingCell>)rawMaterial;
             List<PositionBuildingCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -115,8 +115,8 @@ public class AgeProcess implements IProcess<ExcelCell> {
                     }
                 }
             }
-            占比1985 = (总量-前1985)/(总量*1.0);
-            占比1995 = 后1995/(总量*1.0);
+            占比1985 = (总量-前1985)/(总量*1.0) *100;
+            占比1995 = 后1995/(总量*1.0) *100;
         }else if(zlass == (QuantificationNonHighFrequencyCell.class)){
             List<QuantificationNonHighFrequencyCell> cells = (List<QuantificationNonHighFrequencyCell>)rawMaterial;
             List<QuantificationNonHighFrequencyCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -137,8 +137,8 @@ public class AgeProcess implements IProcess<ExcelCell> {
                     }
                 }
             }
-            占比1985 = (总量-前1985)/(总量*1.0);
-            占比1995 = 后1995/(总量*1.0);
+            占比1985 = (总量-前1985)/(总量*1.0) *100;
+            占比1995 = 后1995/(总量*1.0) *100;
         }else if(zlass == (StockDataSummaryCell.class)){
             List<StockDataSummaryCell> cells = (List<StockDataSummaryCell>)rawMaterial;
             List<StockDataSummaryCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -159,8 +159,8 @@ public class AgeProcess implements IProcess<ExcelCell> {
                     }
                 }
             }
-            占比1985 = (总量-前1985)/(总量*1.0);
-            占比1995 = 后1995/(总量*1.0);
+            占比1985 = (总量-前1985)/(总量*1.0) *100;
+            占比1995 = 后1995/(总量*1.0) *100;
         }else if(zlass == (WillDailyLimitCell.class)){
             List<WillDailyLimitCell> cells = (List<WillDailyLimitCell>)rawMaterial;
             List<WillDailyLimitCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -181,15 +181,15 @@ public class AgeProcess implements IProcess<ExcelCell> {
                     }
                 }
             }
-            占比1985 = (总量-前1985)/(总量*1.0);
-            占比1995 = 后1995/(总量*1.0);
+            占比1985 = (总量-前1985)/(总量*1.0) *100;
+            占比1995 = 后1995/(总量*1.0) *100;
         }
         ageCellEntity.set总量(总量.toString());
         ageCellEntity.set_1985以前(前1985.toString());
         ageCellEntity.set_1985_1995(之间1985_1995.toString());
         ageCellEntity.set_1995以后(后1995.toString());
-        ageCellEntity.set_1985后占比(String.format("%.3f",占比1985));
-        ageCellEntity.set_1995以后(String.format("%.3f",占比1995));
+        ageCellEntity.set_1985后占比(String.format("%.3f",占比1985)+"%");
+        ageCellEntity.set_1995后占比(String.format("%.3f",占比1995)+"%");
         ageCellEntity.set大类(大类);
         return excelCellList;
     }

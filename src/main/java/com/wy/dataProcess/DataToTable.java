@@ -1,9 +1,7 @@
 package com.wy.dataProcess;
 
-import com.alibaba.excel.EasyExcel;
 import com.wy.entity.*;
 import com.wy.excelCell.*;
-import com.wy.utils.*;
 import com.wy.wordWriter.CellWriter2Word;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -2,7 +2,9 @@ package com.wy.header;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Header {
-    private String[] header;
+    private List<Cell> header;
 }

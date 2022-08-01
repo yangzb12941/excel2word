@@ -8,13 +8,13 @@ public class AgeCellEntity extends CellEntity{
 
     private String 总量;
 
-    private String 前1985;
+    private String _1985以前;
 
-    private String 之间1985_1995;
+    private String _1985_1995;
 
-    private String 后1995;
+    private String _1995以后;
 
-    private String 占比1985;
+    private String _1985后占比;
 
-    private String 占比1995;
+    private String _1995后占比;
 }

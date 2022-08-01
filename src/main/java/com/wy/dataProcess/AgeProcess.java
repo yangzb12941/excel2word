@@ -185,11 +185,11 @@ public class AgeProcess implements IProcess<ExcelCell> {
             占比1995 = 后1995/(总量*1.0);
         }
         ageCellEntity.set总量(总量.toString());
-        ageCellEntity.set前1985(前1985.toString());
-        ageCellEntity.set之间1985_1995(之间1985_1995.toString());
-        ageCellEntity.set后1995(后1995.toString());
-        ageCellEntity.set占比1985(String.format("%.3f",占比1985));
-        ageCellEntity.set占比1995(String.format("%.3f",占比1995));
+        ageCellEntity.set_1985以前(前1985.toString());
+        ageCellEntity.set_1985_1995(之间1985_1995.toString());
+        ageCellEntity.set_1995以后(后1995.toString());
+        ageCellEntity.set_1985后占比(String.format("%.3f",占比1985));
+        ageCellEntity.set_1995以后(String.format("%.3f",占比1995));
         ageCellEntity.set大类(大类);
         return excelCellList;
     }

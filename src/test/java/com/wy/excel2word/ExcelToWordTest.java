@@ -53,7 +53,7 @@ public class ExcelToWordTest {
                         }else if(sheet.getSheetName().indexOf("量化-非高频")>=0){
                             EasyExcel.read(file, QuantificationNonHighFrequencyCell.class,
                                     new QuantificationNonHighFrequencyCellTools(cellContext,"量化-非高频"))
-                                    .sheet(sheet.getSheetName()).headRowNumber(5).doRead();
+                                    .sheet(sheet.getSheetName()).headRowNumber(4).doRead();
                         }else if(sheet.getSheetName().indexOf("股票数据汇总")>=0){
                             EasyExcel.read(file, StockDataSummaryCell.class,
                                     new StockDataSummaryCellTools(cellContext,"股票数据汇总"))

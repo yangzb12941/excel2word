@@ -57,7 +57,7 @@ public class DailyLimitOrderCellTools extends ExcelImportTools<DailyLimitOrderCe
     }
 
     private void excleDataToExcelCell(){
-        List<ExcelCell> excelCellList = new ArrayList<ExcelCell>(super.list.size());
+        List<DailyLimitOrderCell> excelCellList = super.list;
         HashMap itmesMap = this.cellContext.getAllExcelCellMap();
         if(itmesMap.containsKey(this.sheetName)){
             ((ArrayList<ExcelCell>) itmesMap.get(this.sheetName)).addAll(excelCellList);

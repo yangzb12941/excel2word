@@ -1,6 +1,8 @@
 package com.wy.dataProcess;
 
 import com.wy.entity.WordTableModelEntity;
+import com.wy.enumClass.EducationEnum;
+import com.wy.enumClass.EnumUtils;
 import com.wy.excelCell.*;
 import com.wy.utils.GetYear;
 
@@ -28,7 +30,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员编号(element.get服务人员编号());
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
-                excelCell.set学历(element.get学历());
+                excelCell.set学历(EnumUtils.getTypeName(EducationEnum.class,element.get学历()));
                 excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
@@ -43,7 +45,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员编号(element.get服务人员编号());
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
-                excelCell.set学历(element.get学历());
+                excelCell.set学历(EnumUtils.getTypeName(EducationEnum.class,element.get学历()));
                 excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
@@ -58,7 +60,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员编号(element.get服务人员编号());
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
-                excelCell.set学历(element.get学历());
+                excelCell.set学历(EnumUtils.getTypeName(EducationEnum.class,element.get学历()));
                 excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
@@ -73,7 +75,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员编号(element.get服务人员编号());
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
-                excelCell.set学历(element.get学历());
+                excelCell.set学历(EnumUtils.getTypeName(EducationEnum.class,element.get学历()));
                 excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
@@ -88,7 +90,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员编号(element.get服务人员编号());
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
-                excelCell.set学历(element.get学历());
+                excelCell.set学历(EnumUtils.getTypeName(EducationEnum.class,element.get学历()));
                 excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
@@ -103,7 +105,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员编号(element.get服务人员编号());
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
-                excelCell.set学历(element.get学历());
+                excelCell.set学历(EnumUtils.getTypeName(EducationEnum.class,element.get学历()));
                 excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });
@@ -118,7 +120,7 @@ public class NativeProcess implements IProcess<ExcelCell>{
                 excelCell.set服务人员编号(element.get服务人员编号());
                 excelCell.set服务人员团队(element.get服务人员团队());
                 excelCell.set使用系统(element.get使用系统());
-                excelCell.set学历(element.get学历());
+                excelCell.set学历(EnumUtils.getTypeName(EducationEnum.class,element.get学历()));
                 excelCell.set年份(GetYear.getYear(element.get出生年月日()).toString());
                 excelCellList.add(excelCell);
             });

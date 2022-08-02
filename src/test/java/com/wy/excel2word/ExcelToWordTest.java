@@ -70,4 +70,10 @@ public class ExcelToWordTest {
             LOGGER.error("ExcelToWordTest error {}",e);
         }
     }
+
+    @Test
+    public void test_1(){
+        String aaa = "12345.6789";
+        LOGGER.info("aaaaaa-{}",String.format("%.3f",aaa));
+    }
 }

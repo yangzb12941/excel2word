@@ -163,11 +163,11 @@ public class EducationProcess implements IProcess<ExcelCell>{
                 if(!CollectionUtils.isEmpty(value)){
                     WillDailyLimitCell valueItem = value.get(0);
                     Integer education = Integer.valueOf(valueItem.get学历());
-                    if(education<=3){
+                    if(education < 3){
                         硕博++;
                     }else if(education == 3){
                         本科++;
-                    }else if(本科<3){
+                    }else if(education >= 4){
                         本科以下++;
                     }
                 }

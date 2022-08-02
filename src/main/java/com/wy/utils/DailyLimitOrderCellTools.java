@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 4.涨停板敢死队
@@ -57,7 +58,7 @@ public class DailyLimitOrderCellTools extends ExcelImportTools<DailyLimitOrderCe
     }
 
     private void excleDataToExcelCell(){
-        List<DailyLimitOrderCell> excelCellList = super.list;
+        List<DailyLimitOrderCell> excelCellList = super.list.stream().filter(e->Integer.valueOf(e.get使用系统次数())>=400).collect(Collectors.toList());
         HashMap itmesMap = this.cellContext.getAllExcelCellMap();
         if(itmesMap.containsKey(this.sheetName)){
             ((ArrayList<ExcelCell>) itmesMap.get(this.sheetName)).addAll(excelCellList);

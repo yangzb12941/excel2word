@@ -3,7 +3,7 @@ package com.wy.entity;
 import lombok.Data;
 
 @Data
-public class EmphasisCellEntity extends CellEntity implements Comparable<EmphasisCellEntity>{
+public class EmphasisCellEntity extends CellEntity{
 
     private String 服务人员编号;
 
@@ -28,10 +28,4 @@ public class EmphasisCellEntity extends CellEntity implements Comparable<Emphasi
     private String 适用系统;
 
     private String 介绍物料;
-
-
-    @Override
-    public int compareTo(EmphasisCellEntity o) {
-        return o.get服务人员编号().compareTo(this.get服务人员编号());
-    }
 }

@@ -22,8 +22,8 @@ public class EducationProcess implements IProcess<ExcelCell>{
         excelCellList.add(educationCellEntity);
         String 大类 = "";
         Integer 总量 = 0;
-        Integer 本科以下 = 0;
-        Integer 本科 = 0;
+        Integer 本科以下数量 = 0;
+        Integer 本科数量 = 0;
         Integer 硕博 = 0;
         Double 本科以上占比 = 0d;
         if(zlass == (BondArbitrageCell.class)){
@@ -40,13 +40,13 @@ public class EducationProcess implements IProcess<ExcelCell>{
                     if(education<=3){
                         硕博++;
                     }else if(education == 3){
-                        本科++;
-                    }else if(本科<3){
-                        本科以下++;
+                        本科数量++;
+                    }else if(education >= 4){
+                        本科以下数量++;
                     }
                 }
             }
-            本科以上占比 = (总量-本科以下)/(总量*1.0)*100;
+            本科以上占比 = (总量-本科以下数量)/(总量*1.0)*100;
         }else if(zlass == (DailyLimitOrderCell.class)){
             List<DailyLimitOrderCell> cells = (List<DailyLimitOrderCell>)rawMaterial;
             List<DailyLimitOrderCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -61,13 +61,13 @@ public class EducationProcess implements IProcess<ExcelCell>{
                     if(education<=3){
                         硕博++;
                     }else if(education == 3){
-                        本科++;
-                    }else if(本科<3){
-                        本科以下++;
+                        本科数量++;
+                    }else if(education >= 4){
+                        本科以下数量++;
                     }
                 }
             }
-            本科以上占比 = (总量-本科以下)/(总量*1.0)*100;
+            本科以上占比 = (总量-本科以下数量)/(总量*1.0)*100;
         }else if(zlass == (NightOrderCell.class)){
             List<NightOrderCell> cells = (List<NightOrderCell>)rawMaterial;
             List<NightOrderCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -82,13 +82,13 @@ public class EducationProcess implements IProcess<ExcelCell>{
                     if(education<=3){
                         硕博++;
                     }else if(education == 3){
-                        本科++;
-                    }else if(本科<3){
-                        本科以下++;
+                        本科数量++;
+                    }else if(education >= 4){
+                        本科以下数量++;
                     }
                 }
             }
-            本科以上占比 = (总量-本科以下)/(总量*1.0)*100;
+            本科以上占比 = (总量-本科以下数量)/(总量*1.0)*100;
         }else if(zlass == (PositionBuildingCell.class)){
             List<PositionBuildingCell> cells = (List<PositionBuildingCell>)rawMaterial;
             List<PositionBuildingCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -103,13 +103,13 @@ public class EducationProcess implements IProcess<ExcelCell>{
                     if(education<=3){
                         硕博++;
                     }else if(education == 3){
-                        本科++;
-                    }else if(本科<3){
-                        本科以下++;
+                        本科数量++;
+                    }else if(education >= 4){
+                        本科以下数量++;
                     }
                 }
             }
-            本科以上占比 = (总量-本科以下)/(总量*1.0)*100;
+            本科以上占比 = (总量-本科以下数量)/(总量*1.0)*100;
         }else if(zlass == (QuantificationNonHighFrequencyCell.class)){
             List<QuantificationNonHighFrequencyCell> cells = (List<QuantificationNonHighFrequencyCell>)rawMaterial;
             List<QuantificationNonHighFrequencyCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -124,13 +124,13 @@ public class EducationProcess implements IProcess<ExcelCell>{
                     if(education<=3){
                         硕博++;
                     }else if(education == 3){
-                        本科++;
-                    }else if(本科<3){
-                        本科以下++;
+                        本科数量++;
+                    }else if(education >= 4){
+                        本科以下数量++;
                     }
                 }
             }
-            本科以上占比 = (总量-本科以下)/(总量*1.0)*100;
+            本科以上占比 = (总量-本科以下数量)/(总量*1.0)*100;
         }else if(zlass == (StockDataSummaryCell.class)){
             List<StockDataSummaryCell> cells = (List<StockDataSummaryCell>)rawMaterial;
             List<StockDataSummaryCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -145,13 +145,13 @@ public class EducationProcess implements IProcess<ExcelCell>{
                     if(education<=3){
                         硕博++;
                     }else if(education == 3){
-                        本科++;
-                    }else if(本科<3){
-                        本科以下++;
+                        本科数量++;
+                    }else if(education >= 4){
+                        本科以下数量++;
                     }
                 }
             }
-            本科以上占比 = (总量-本科以下)/(总量*1.0)*100;
+            本科以上占比 = (总量-本科以下数量)/(总量*1.0)*100;
         }else if(zlass == (WillDailyLimitCell.class)){
             List<WillDailyLimitCell> cells = (List<WillDailyLimitCell>)rawMaterial;
             List<WillDailyLimitCell> filterCollect = cells.stream().filter(e -> !e.get客户类型().equals("产品") && !e.get出生年月日().equals("0")).collect(Collectors.toList());
@@ -166,19 +166,19 @@ public class EducationProcess implements IProcess<ExcelCell>{
                     if(education < 3){
                         硕博++;
                     }else if(education == 3){
-                        本科++;
+                        本科数量++;
                     }else if(education >= 4){
-                        本科以下++;
+                        本科以下数量++;
                     }
                 }
             }
-            本科以上占比 = (总量-本科以下)/(总量*1.0)*100;
+            本科以上占比 = (总量-本科以下数量)/(总量*1.0)*100;
         }
         educationCellEntity.set总量(总量.toString());
-        educationCellEntity.set本科(本科.toString());
-        educationCellEntity.set本科以下(本科以下.toString());
-        educationCellEntity.set硕博(硕博.toString());
-        educationCellEntity.set本科以上占比(String.format("%.3f",本科以上占比)+"%");
+        educationCellEntity.set本科数量(本科数量.toString());
+        educationCellEntity.set本科以下数量(本科以下数量.toString());
+        educationCellEntity.set硕博数量(硕博.toString());
+        educationCellEntity.set本科及以上占比(String.format("%.3f",本科以上占比)+"%");
         educationCellEntity.set大类(大类);
         return excelCellList;
     }

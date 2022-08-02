@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 把数据转换成对应的Table数据
@@ -132,6 +133,12 @@ public class DataToTable {
                 itmesMap.put(tableName, processReturn);
             }
         }
+        List<EmphasisCellEntity> eceS = (List<EmphasisCellEntity>)cellContext.getItmesMap().get(tableName);
+        List<EmphasisCellEntity> collect = eceS.stream().sorted(
+                Comparator.comparing(EmphasisCellEntity::get服务人员编号, (x, y) -> y.compareTo(x))
+                .thenComparing(EmphasisCellEntity::get客户资金账号, (x, y) -> y.compareTo(x))
+                .thenComparing(EmphasisCellEntity::get交易日期, (x, y) -> y.compareTo(x))).collect(Collectors.toList());
+        cellContext.getItmesMap().put(tableName,collect);
     }
 
     private Class getZlass(String key){

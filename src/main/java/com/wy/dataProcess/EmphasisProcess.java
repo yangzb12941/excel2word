@@ -29,7 +29,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCell.set服务人员姓名(element.get服务人员姓名());
                     excelCell.set客户资金账号(element.get资金账号());
                     excelCell.set交易日期(element.get批量日期());
-                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(element.get总资产().indexOf(".")+1,element.get总资产().length()):element.get总资产());
+                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(0,element.get总资产().indexOf(".")):element.get总资产());
                     excelCell.set可用资金("0");
                     excelCell.set现金资产("0");
                     int indexOf = element.get使用系统().indexOf("网上交易");
@@ -57,9 +57,9 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCell.set服务人员姓名(element.get服务人员姓名());
                     excelCell.set客户资金账号(element.get资金账号());
                     excelCell.set交易日期(element.get交易日期());
-                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(element.get总资产().indexOf(".")+1,element.get总资产().length()):element.get总资产());
-                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(element.get可用资金().indexOf(".")+1,element.get可用资金().length()):element.get可用资金());
-                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(element.get现金资产().indexOf(".")+1,element.get现金资产().length()):element.get现金资产());
+                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(0,element.get总资产().indexOf(".")):element.get总资产());
+                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(0,element.get可用资金().indexOf(".")):element.get可用资金());
+                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(0,element.get现金资产().indexOf(".")):element.get现金资产());
                     int indexOf = element.get使用系统().indexOf("网上交易");
                     if(indexOf>=0){
                         excelCell.set使用系统(element.get使用系统().substring(indexOf+5,element.get使用系统().length()));
@@ -85,9 +85,9 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCell.set服务人员姓名(element.get服务人员姓名());
                     excelCell.set客户资金账号(element.get资金账号());
                     excelCell.set交易日期(element.get批量日期());
-                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(element.get总资产().indexOf(".")+1,element.get总资产().length()):element.get总资产());
-                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(element.get可用资金().indexOf(".")+1,element.get可用资金().length()):element.get可用资金());
-                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(element.get现金资产().indexOf(".")+1,element.get现金资产().length()):element.get现金资产());
+                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(0,element.get总资产().indexOf(".")):element.get总资产());
+                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(0,element.get可用资金().indexOf(".")):element.get可用资金());
+                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(0,element.get现金资产().indexOf(".")):element.get现金资产());
                     int indexOf = element.get使用系统().indexOf("网上交易");
                     if(indexOf>=0){
                         excelCell.set使用系统(element.get使用系统().substring(indexOf+5,element.get使用系统().length()));
@@ -112,9 +112,9 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCell.set服务人员姓名(element.get服务人员姓名());
                     excelCell.set客户资金账号(element.get客户号());
                     excelCell.set交易日期(element.get批量日期());
-                    excelCell.set总资产(element.get资产规模().indexOf(".")>=0?element.get资产规模().substring(element.get资产规模().indexOf(".")+1,element.get资产规模().length()):element.get资产规模());
+                    excelCell.set总资产(element.get资产规模().indexOf(".")>=0?element.get资产规模().substring(0,element.get资产规模().indexOf(".")):element.get资产规模());
                     excelCell.set可用资金("0");
-                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(element.get现金资产().indexOf(".")+1,element.get现金资产().length()):element.get现金资产());
+                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(0,element.get现金资产().indexOf(".")):element.get现金资产());
                     int indexOf = element.get使用系统().indexOf("网上交易");
                     if(indexOf>=0){
                         excelCell.set使用系统(element.get使用系统().substring(indexOf+5,element.get使用系统().length()));
@@ -140,9 +140,9 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCell.set服务人员姓名(element.get服务人员姓名());
                     excelCell.set客户资金账号(element.get资金账号());
                     excelCell.set交易日期(element.get日期范围());
-                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(element.get总资产().indexOf(".")+1,element.get总资产().length()):element.get总资产());
-                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(element.get可用资金().indexOf(".")+1,element.get可用资金().length()):element.get可用资金());
-                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(element.get现金资产().indexOf(".")+1,element.get现金资产().length()):element.get现金资产());
+                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(0,element.get总资产().indexOf(".")):element.get总资产());
+                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(0,element.get可用资金().indexOf(".")):element.get可用资金());
+                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(0,element.get可用资金().indexOf(".")):element.get现金资产());
                     int indexOf = element.get使用系统().indexOf("网上交易");
                     if(indexOf>=0){
                         excelCell.set使用系统(element.get使用系统().substring(indexOf+5,element.get使用系统().length()));
@@ -165,7 +165,7 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCell.set服务人员姓名(element.get服务人员姓名());
                     excelCell.set客户资金账号(element.get资金账号());
                     excelCell.set交易日期(element.get批量日期());
-                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(element.get总资产().indexOf(".")+1,element.get总资产().length()):element.get总资产());
+                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(0,element.get总资产().indexOf(".")):element.get总资产());
                     excelCell.set可用资金("0");
                     excelCell.set现金资产("0");
                     int indexOf = element.get使用系统().indexOf("网上交易");
@@ -193,9 +193,9 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                     excelCell.set服务人员姓名(element.get服务人员姓名());
                     excelCell.set客户资金账号(element.get资金账号());
                     excelCell.set交易日期(element.get交易日期());
-                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(element.get总资产().indexOf(".")+1,element.get总资产().length()):element.get总资产());
-                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(element.get可用资金().indexOf(".")+1,element.get可用资金().length()):element.get可用资金());
-                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(element.get现金资产().indexOf(".")+1,element.get现金资产().length()):element.get现金资产());
+                    excelCell.set总资产(element.get总资产().indexOf(".")>=0?element.get总资产().substring(0,element.get总资产().indexOf(".")):element.get总资产());
+                    excelCell.set可用资金(element.get可用资金().indexOf(".")>=0?element.get可用资金().substring(0,element.get可用资金().indexOf(".")):element.get可用资金());
+                    excelCell.set现金资产(element.get现金资产().indexOf(".")>=0?element.get现金资产().substring(0,element.get现金资产().indexOf(".")):element.get现金资产());
                     int indexOf = element.get使用系统().indexOf("网上交易");
                     if(indexOf>=0){
                         excelCell.set使用系统(element.get使用系统().substring(indexOf+5,element.get使用系统().length()));
@@ -210,7 +210,6 @@ public class EmphasisProcess implements IProcess<ExcelCell>{
                 }
             });
         }
-        Collections.sort(excelCellList);
         return excelCellList;
     }
 }

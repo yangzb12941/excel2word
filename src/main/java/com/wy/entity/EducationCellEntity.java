@@ -8,11 +8,11 @@ public class EducationCellEntity extends CellEntity{
 
     private String 总量;
 
-    private String 本科以下;
+    private String 本科以下数量;
 
-    private String 本科;
+    private String 本科数量;
 
-    private String 硕博;
+    private String 硕博数量;
 
-    private String 本科以上占比;
+    private String 本科及以上占比;
 }

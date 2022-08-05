@@ -10,14 +10,16 @@ import java.io.File;
 import javax.swing.*;
 
 import com.wy.wordWriter.ExcelToWord;
+import lombok.Data;
 import net.miginfocom.swing.*;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Brainrain
  */
-public class excel2word {
-    public excel2word() {
+@Data
+public class Excel2wordForm {
+    public Excel2wordForm() {
         initComponents();
     }
 
@@ -48,6 +50,7 @@ public class excel2word {
             if(StringUtils.isNotEmpty(fieldText)){
                 ExcelToWord instance = ExcelToWord.getInstance();
                 instance.excelToWord(fieldText);
+                JOptionPane.showMessageDialog(null, "目录:"+System.getProperty("user.dir"),"标题【创建成功】",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }
@@ -55,7 +58,8 @@ public class excel2word {
     //关闭窗体
     private void cancel(ActionEvent e) {
         if(e.getSource() == cancelButton){
-            excel2wordForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            excel2wordForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            System.exit(0);
         }
     }
 

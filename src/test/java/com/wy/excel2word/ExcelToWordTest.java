@@ -65,7 +65,7 @@ public class ExcelToWordTest {
                 }
             }
             DataToTable.getInstance().dataToTable(cellContext);
-            CellWriter2Word.getInstance().writeWord(cellContext);
+            CellWriter2Word.getInstance().writeWord(cellContext,"D:\\aaaa");
         }catch (Exception e) {
             LOGGER.error("ExcelToWordTest error {}",e);
         }

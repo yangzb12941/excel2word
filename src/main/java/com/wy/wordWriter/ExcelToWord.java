@@ -72,6 +72,7 @@ public class ExcelToWord {
                     }
                 }catch (Exception e) {
                     LOGGER.error("文件-{}读取失败;",file.getName());
+                    LOGGER.error("{}",e);
                 }
             }
             DataToTable.getInstance().dataToTable(cellContext);

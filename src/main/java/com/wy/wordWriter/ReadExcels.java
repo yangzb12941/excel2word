@@ -41,16 +41,19 @@ public class ReadExcels {
      */
     private List<File> getAllFile(File dirFile){
         // 如果文件夹不存在或着不是文件夹，则返回 null
-        if(Objects.isNull(dirFile) || !dirFile.exists() || dirFile.isFile())
+        List<File> files = new ArrayList<>();
+        if(Objects.isNull(dirFile) || !dirFile.exists())
             return null;
-
+        //若是选择的是单个文件，则直接返回单个文件列表
+        if(dirFile.isFile()){
+            files.add(dirFile);
+            return files;
+        }
+        //若是选择的文件夹，则获取文件夹下的文件
         File[] childrenFiles =  dirFile.listFiles();
         if(Objects.isNull(childrenFiles) || childrenFiles.length == 0)
             return null;
-
-        List<File> files = new ArrayList<>();
         for(File childFile : childrenFiles) {
-
             // 如果时文件，直接添加到结果集合
             if(childFile.isFile()) {
                 files.add(childFile);

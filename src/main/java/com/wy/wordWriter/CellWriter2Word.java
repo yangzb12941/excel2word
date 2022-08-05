@@ -33,8 +33,8 @@ public class CellWriter2Word {
         }
     }
 
-    public void writeWord(CellContext cellContext) throws IOException {
-        XWPFTemplate compile = XWPFTemplate.compile("src\\test\\templates\\吴莹Excel2Word模板.docx");
+    public void writeWord(CellContext cellContext,String path) throws IOException {
+        XWPFTemplate compile = XWPFTemplate.compile("src\\main\\resources\\templates\\吴莹Excel2Word模板.docx");
         List<MetaTemplate> elementTemplates = compile.getElementTemplates();
         Map<String, Object> values = new HashMap<String, Object>() {
             {
@@ -51,6 +51,6 @@ public class CellWriter2Word {
                 }
             }
         };
-        compile.render(values).writeToFile("运行维护二部-用户画像运营周报（2022年m月第n期）"+ DateUtils.format(new Date(),"yyyyMMddHHmmss")+".docx");
+        compile.render(values).writeToFile(path+"运行维护二部-用户画像运营周报（2022年m月第n期）"+ DateUtils.format(new Date(),"yyyyMMddHHmmss")+".docx");
     }
 }

@@ -1,0 +1,69 @@
+JFDML JFormDesigner: "7.0.7.0.1134" Java: "11.0.7" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "excel2wordForm"
+			"title": "excel2word"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "dialogPane"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+					"$layoutConstraints": "insets dialog,hidemode 3"
+					"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+					"$rowConstraints": "[][][][][][][]"
+				} ) {
+					name: "contentPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "fileLable"
+						"text": "请选择文件夹:"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 1 1"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 2 1 10 1"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "fileButton"
+						"text": "文件夹"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "selectFile", true ) )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 12 1"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "North"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+					"$layoutConstraints": "insets dialog,alignx right"
+					"$columnConstraints": "[button,fill][button,fill]"
+					"$rowSpecs": "[fill]"
+				} ) {
+					name: "buttonBar"
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "okButton"
+						"text": "OK"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ok", true ) )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 0"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "cancelButton"
+						"text": "Cancel"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancel", true ) )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 1 0"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "South"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 530, 305 )
+		} )
+	}
+}

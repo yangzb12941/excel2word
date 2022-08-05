@@ -1,54 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
-　　　　scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
-　　　　debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。-->
-<configuration scan="true" scanPeriod="10 seconds">
+<Configuration status="fatal">
+    <!--打印在本地，根据具体存储地址填写-->
+    <Properties>
+        <Property name="baseDir" value="D:/Excel2WordLogs"/>
+    </Properties>
 
-    <contextName>JPANAME</contextName>
-    <property name="log.path" value="D:/logs"/>
-    <property name="server.name" value="auth-api-ext-impl"/>
-    <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
-    <property name="log.file" value="${log.path}/${server.name}.%d{yyyyMMdd}.%i.log.gz"/>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+            <ThresholdFilter level="info" onMatch="ACCEPT"
+                             onMismatch="DENY"/>
+            <PatternLayout
+                    pattern="[%d{MM:dd HH:mm:ss.SSS}] [%level] [%logger{36}] - %msg%n"/>
+        </Console>
 
-    <!-- 控制台输出 -->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${log.pattern}</pattern>
-        </encoder>
-    </appender>
+        <!--debug级别日志文件输出-->
+        <RollingFile name="debug_appender" fileName="${baseDir}/debug.log"
+                     filePattern="${baseDir}/debug_%i.log.%d{yyyy-MM-dd}">
+            <!-- 过滤器 -->
+            <Filters>
+                <!-- 限制日志级别在debug及以上在info以下 -->
+                <ThresholdFilter level="debug"/>
+                <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <!-- 日志格式 -->
+            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+            <!-- 策略 -->
+            <Policies>
+                <!-- 每隔一天转存 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- 文件大小 -->
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
 
-    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${log.pattern}</pattern>
-        </encoder>
+        <!-- info级别日志文件输出 -->
+        <RollingFile name="info_appender" fileName="${baseDir}/info.log"
+                     filePattern="${baseDir}/info_%i.log.%d{yyyy-MM-dd}">
+            <!-- 过滤器 -->
+            <Filters>
+                <!-- 限制日志级别在info及以上在error以下 -->
+                <ThresholdFilter level="info"/>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <!-- 日志格式 -->
+            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+            <!-- 策略 -->
+            <Policies>
+                <!-- 每隔一天转存 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- 文件大小 -->
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
 
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <!--日志文件输出的文件名-->
-            <FileNamePattern>${log.file}</FileNamePattern>
-            <!--日志文件保留天数-->
-            <MaxHistory>30</MaxHistory>
-
-            <maxFileSize>50MB</maxFileSize>
-        </rollingPolicy>
-
-        <ImmediateFlush>true</ImmediateFlush>
-    </appender>
-
-    <appender name="asyncFileAppender" class="ch.qos.logback.classic.AsyncAppender">
-        <queueSize>5000</queueSize>
-        <discardingThreshold>0</discardingThreshold>
-        <includeCallerData>false</includeCallerData>
-        <appender-ref ref="fileAppender"/>
-    </appender>
-
-    <!--这里可以不写-->
-    <logger name="com.feng" level="INFO"></logger>
-
-    <!-- 日志输出级别 -->
-    <root level="INFO">
-        <appender-ref ref="asyncFileAppender"/>
-        <appender-ref ref="console"/>
-    </root>
-</configuration>
-
+        <!-- error级别日志文件输出 -->
+        <RollingFile name="error_appender" fileName="${baseDir}/error.log"
+                     filePattern="${baseDir}/error_%i.log.%d{yyyy-MM-dd}">
+            <!-- 过滤器 -->
+            <Filters>
+                <!-- 限制日志级别在error及以上 -->
+                <ThresholdFilter level="error"/>
+            </Filters>
+            <!-- 日志格式 -->
+            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+            <Policies>
+                <!-- 每隔一天转存 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- 文件大小 -->
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="debug_appender"/>
+            <AppenderRef ref="info_appender"/>
+            <AppenderRef ref="error_appender"/>
+        </Root>
+        <!--spring日志-->
+        <Logger name="org.springframework" level="debug"/>
+    </Loggers>
+</Configuration>

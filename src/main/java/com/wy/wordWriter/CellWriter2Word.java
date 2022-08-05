@@ -34,7 +34,7 @@ public class CellWriter2Word {
     }
 
     public void writeWord(CellContext cellContext,String path) throws IOException {
-        XWPFTemplate compile = XWPFTemplate.compile("src\\main\\resources\\templates\\吴莹Excel2Word模板.docx");
+        XWPFTemplate compile = XWPFTemplate.compile(this.getClass().getResourceAsStream("/templates/吴莹Excel2Word模板.docx"));
         List<MetaTemplate> elementTemplates = compile.getElementTemplates();
         Map<String, Object> values = new HashMap<String, Object>() {
             {
